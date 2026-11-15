@@ -3,7 +3,7 @@
  const mode=root.dataset.listPage,grid=root.querySelector("[data-list-grid]");
  fetch("./assets/data/products.json").then(r=>r.json()).then(items=>{
   const key=mode==="favorites"?"aetherium-favorites":"aetherium-compare";
-  const ids=JSON.parse(localStorage.getItem(key)||"[]");
+  const ids=(window.AetheriumStore?.read(key) || []);
   const selected=items.filter(p=>ids.includes(p.id));
   if(!selected.length){grid.innerHTML='<div class="empty-state">Здесь пока пусто. Откройте каталог и добавьте демонстрационные конфигурации.</div>';return}
   if(mode==="compare"){
