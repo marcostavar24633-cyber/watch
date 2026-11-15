@@ -1,0 +1,72 @@
+[
+  {
+    "id": "aether-80-az",
+    "slug": "aether-80-az",
+    "name": "AETHER 80 AZ",
+    "category": "refractor",
+    "categoryLabel": "Рефрактор",
+    "apertureMm": 80,
+    "focalLengthMm": null,
+    "mountType": "Азимутальная",
+    "intendedUse": ["moon", "planets", "beginner"],
+    "summary": "Демонстрационная конфигурация линзового телескопа для знакомства с наблюдениями Луны и ярких объектов.",
+    "description": "Учебный пример рефрактора. Перед реальной покупкой необходимо проверить оптическую схему, качество оптики, комплектацию и характеристики монтировки.",
+    "dataStatus": "demo"
+  },
+  {
+    "id": "nova-130-eq",
+    "slug": "nova-130-eq",
+    "name": "NOVA 130 EQ",
+    "category": "reflector",
+    "categoryLabel": "Рефлектор Ньютона",
+    "apertureMm": 130,
+    "focalLengthMm": null,
+    "mountType": "Экваториальная",
+    "intendedUse": ["moon", "planets", "deep-sky"],
+    "summary": "Демонстрационная конфигурация зеркального телескопа с экваториальной монтировкой.",
+    "description": "Пример рефлектора Ньютона. Реальные параметры зеркала, фокусное расстояние, устойчивость монтировки и комплектность не подтверждены.",
+    "dataStatus": "demo"
+  },
+  {
+    "id": "lumen-127-mak",
+    "slug": "lumen-127-mak",
+    "name": "LUMEN 127 MAK",
+    "category": "catadioptric",
+    "categoryLabel": "Катадиоптрик",
+    "apertureMm": 127,
+    "focalLengthMm": null,
+    "mountType": "Не указана",
+    "intendedUse": ["moon", "planets"],
+    "summary": "Демонстрационный пример компактной зеркально-линзовой оптической схемы.",
+    "description": "Учебный пример системы Максутова. Комплектация, фокусное расстояние и совместимость аксессуаров должны подтверждаться документацией конкретного изделия.",
+    "dataStatus": "demo"
+  },
+  {
+    "id": "deepsky-200-dob",
+    "slug": "deepsky-200-dob",
+    "name": "DEEPSKY 200 DOB",
+    "category": "reflector",
+    "categoryLabel": "Добсон",
+    "apertureMm": 200,
+    "focalLengthMm": null,
+    "mountType": "Добсон",
+    "intendedUse": ["deep-sky", "moon"],
+    "summary": "Демонстрационный пример крупноапертурного рефлектора на монтировке Добсона.",
+    "description": "Учебная конфигурация для объяснения принципа Добсона. Реальные оптические и механические параметры не заявляются.",
+    "dataStatus": "demo"
+  },
+  {
+    "id": "astrograph-80",
+    "slug": "astrograph-80",
+    "name": "ASTROGRAPH 80",
+    "category": "astrophoto",
+    "categoryLabel": "Астрофотография",
+    "apertureMm": 80,
+    "focalLengthMm": null,
+    "mountType": "Требует подбора системы",
+    "intendedUse": ["astrophoto"],
+    "summary": "Демонстрационный пример оптической трубы в составе системы для астрофотографии.",
+    "description": "Для астрофотографии важна вся система: монтировка, камера, фокусёр, корректор, гидирование и управление. Эта запись не является подтверждённым комплектом.",
+    "dataStatus": "demo"
+  }
+]
