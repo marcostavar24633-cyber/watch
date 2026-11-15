@@ -34,15 +34,26 @@
     syncStates();
   }
   function syncStates(){
-    const favs=JSON.parse(localStorage.getItem("aetherium-favorites")||"[]");
-    const comps=JSON.parse(localStorage.getItem("aetherium-compare")||"[]");
+    const favs=window.AetheriumStore?.read("aetherium-favorites") || [];
+    const comps=window.AetheriumStore?.read("aetherium-compare") || [];
     grid.querySelectorAll("[data-favorite]").forEach(b=>{const on=favs.includes(b.dataset.favorite);b.setAttribute("aria-pressed",String(on));b.textContent=on?"♥":"♡"});
     grid.querySelectorAll("[data-compare]").forEach(b=>{const on=comps.includes(b.dataset.compare);b.setAttribute("aria-pressed",String(on));b.textContent=on?"✓":"⇄"});
   }
   grid.addEventListener("click",e=>{
     const fav=e.target.closest("[data-favorite]"),cmp=e.target.closest("[data-compare]");
-    if(fav){const a=JSON.parse(localStorage.getItem("aetherium-favorites")||"[]");const id=fav.dataset.favorite;localStorage.setItem("aetherium-favorites",JSON.stringify(a.includes(id)?a.filter(x=>x!==id):[...a,id]));syncStates()}
-    if(cmp){const a=JSON.parse(localStorage.getItem("aetherium-compare")||"[]");const id=cmp.dataset.compare;if(!a.includes(id)&&a.length>=3){alert("Для сравнения можно выбрать не более трёх демонстрационных конфигураций.");return}localStorage.setItem("aetherium-compare",JSON.stringify(a.includes(id)?a.filter(x=>x!==id):[...a,id]));syncStates()}
+    if(fav){
+      const a=window.AetheriumStore?.read("aetherium-favorites") || [], id=fav.dataset.favorite;
+      const ok=window.AetheriumStore?.write("aetherium-favorites",a.includes(id)?a.filter(x=>x!==id):[...a,id]);
+      if(count)count.textContent=ok?(a.includes(id)?"Удалено из избранного":"Добавлено в избранное"):"Не удалось сохранить избранное в этом браузере.";
+      syncStates();
+    }
+    if(cmp){
+      const a=window.AetheriumStore?.read("aetherium-compare") || [], id=cmp.dataset.compare;
+      if(!a.includes(id)&&a.length>=3){if(count)count.textContent="Лимит сравнения — три конфигурации. Удалите одну из списка сравнения.";return}
+      const ok=window.AetheriumStore?.write("aetherium-compare",a.includes(id)?a.filter(x=>x!==id):[...a,id]);
+      if(count)count.textContent=ok?(a.includes(id)?"Удалено из сравнения":"Добавлено к сравнению"):"Не удалось сохранить сравнение в этом браузере.";
+      syncStates();
+    }
   });
   search?.addEventListener("input",render);sort?.addEventListener("change",render);
   filters.forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.filter===active));b.addEventListener("click",()=>{active=b.dataset.filter;filters.forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()})});
