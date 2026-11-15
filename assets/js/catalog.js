@@ -5,7 +5,7 @@
   const filters=[...document.querySelectorAll("[data-filter]")];
   const sort=document.querySelector("[data-sort]");
   const count=document.querySelector("[data-count]");
-  let products=[],active="all";
+  let products=[],active=new URLSearchParams(location.search).get("category")||"all";
   const icon=`<svg viewBox="0 0 180 100" fill="none" aria-hidden="true"><path d="M35 44 119 24l11 18-84 22z" stroke="currentColor" stroke-width="2"/><path d="m119 24 17-7 13 22-19 3M52 61l-8 18m0 0h32m-32 0-7 8m47-8 10 8m-44-8 6-23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="52" r="3" fill="currentColor"/><path d="M20 88h135" stroke="currentColor" opacity=".35"/></svg>`;
   function card(p){
     const el=document.createElement("article");el.className="product-card";
@@ -45,6 +45,6 @@
     if(cmp){const a=JSON.parse(localStorage.getItem("aetherium-compare")||"[]");const id=cmp.dataset.compare;if(!a.includes(id)&&a.length>=3){alert("Для сравнения можно выбрать не более трёх демонстрационных конфигураций.");return}localStorage.setItem("aetherium-compare",JSON.stringify(a.includes(id)?a.filter(x=>x!==id):[...a,id]));syncStates()}
   });
   search?.addEventListener("input",render);sort?.addEventListener("change",render);
-  filters.forEach(b=>b.addEventListener("click",()=>{active=b.dataset.filter;filters.forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()}));
+  filters.forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.filter===active));b.addEventListener("click",()=>{active=b.dataset.filter;filters.forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render()})});
   fetch("./assets/data/products.json").then(r=>{if(!r.ok)throw new Error("Не удалось загрузить каталог");return r.json()}).then(data=>{products=data;render()}).catch(()=>{grid.textContent="Каталог временно недоступен. Обновите страницу позже."});
 })();
