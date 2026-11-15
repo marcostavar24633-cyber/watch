@@ -19,7 +19,7 @@
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Открыть меню">☰</button>
         </div>
       </div>
-      <nav class="mobile-nav container" id="mobile-nav" aria-label="Мобильная навигация">${nav.map(link).join("")}<a href="./favorites.html">Избранное</a><a href="./about.html">О проекте</a></nav>
+      <nav class="mobile-nav container" id="mobile-nav" aria-label="Мобильная навигация">${nav.map(link).join("")}<a href="./favorites.html">Избранное</a><a href="./about.html">О проекте</a><button class="mobile-theme-toggle" type="button" data-theme-toggle>Переключить тему</button></nav>
     </header>`;
   const footer = `
     <footer class="site-footer">
