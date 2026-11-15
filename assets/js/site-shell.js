@@ -32,6 +32,18 @@
         <div class="footer-bottom"><span>© AETHERIUM — демонстрационная концепция магазина.</span><span>Товары и характеристики в прототипе не являются коммерческими предложениями.</span></div>
       </div>
     </footer>`;
+  window.AetheriumStore = {
+    read(key) {
+      try {
+        const value = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(value) ? value.filter(item => typeof item === "string") : [];
+      } catch (error) { return []; }
+    },
+    write(key, value) {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+      catch (error) { return false; }
+    }
+  };
   document.querySelectorAll("[data-site-header]").forEach(el => el.innerHTML=header);
   document.querySelectorAll("[data-site-footer]").forEach(el => el.innerHTML=footer);
   document.addEventListener("click", e => {
