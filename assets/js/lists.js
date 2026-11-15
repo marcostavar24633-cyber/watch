@@ -7,9 +7,9 @@
   const selected=items.filter(p=>ids.includes(p.id));
   if(!selected.length){grid.innerHTML='<div class="empty-state">Здесь пока пусто. Откройте каталог и добавьте демонстрационные конфигурации.</div>';return}
   if(mode==="compare"){
-   const table=document.createElement("table");table.className="spec-table";
+   const scroll=document.createElement("div");scroll.className="table-scroll";scroll.setAttribute("role","region");scroll.setAttribute("aria-label","Таблица сравнения конфигураций");scroll.tabIndex=0;const table=document.createElement("table");table.className="spec-table";
    const fields=[["Модель",p=>p.name],["Тип",p=>p.categoryLabel],["Апертура",p=>p.apertureMm?p.apertureMm+" мм":"Не указана"],["Фокусное расстояние",p=>p.focalLengthMm?p.focalLengthMm+" мм":"Не указано"],["Монтировка",p=>p.mountType||"Не указана"],["Статус данных",p=>"Демонстрационные данные"]];
-   fields.forEach(([label,get])=>{const tr=document.createElement("tr");const th=document.createElement("th");th.textContent=label;tr.append(th);selected.forEach(p=>{const td=document.createElement("td");td.textContent=get(p);tr.append(td)});table.append(tr)});grid.replaceChildren(table);
+   fields.forEach(([label,get])=>{const tr=document.createElement("tr");const th=document.createElement("th");th.textContent=label;tr.append(th);selected.forEach(p=>{const td=document.createElement("td");td.textContent=get(p);tr.append(td)});table.append(tr)});scroll.append(table);grid.replaceChildren(scroll);
   }else{
    selected.forEach(p=>{const article=document.createElement("article");article.className="callout";const h=document.createElement("h3");h.textContent=p.name;const d=document.createElement("p");d.className="muted";d.textContent=p.summary;const a=document.createElement("a");a.className="btn btn-secondary btn-small";a.href="./product.html?id="+encodeURIComponent(p.id);a.textContent="Открыть";article.append(h,d,a);grid.append(article)});
   }
