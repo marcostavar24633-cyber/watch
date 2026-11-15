@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Эклиптика — небо, собранное вручную</title>
-<meta name="description" content="«Эклиптика» — мастерская механических планетариев и астрономических хронометров. Двадцать четыре инструмента в год.">
+<title>AETHERIUM — телескопы и астрономическое оборудование</title>
+<meta name="description" content="AETHERIUM — телескопы и оборудование для наблюдения за Луной, планетами, звёздами и далёкими галактиками. Подбор оптики для начинающих и опытных наблюдателей.">
 <meta name="color-scheme" content="dark light">
 <script>
   /* Тема и вид меню применяются до первой отрисовки — без вспышки */
@@ -416,7 +416,7 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 500; lette
   @keyframes drift { from { transform: translateY(8vh); } to { transform: translateY(-8vh); } }
 }
 
-/* Манифест */
+/* О магазине */
 .manifest-statement { font: 300 var(--fs-xl)/1.32 var(--font-display); letter-spacing: -.015em; max-width: 26em; margin-left: auto; }
 .manifest-statement .w { color: var(--text-dim); transition: color .5s; }
 .manifest-statement .w.lit { color: var(--text); }
@@ -450,7 +450,7 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 500; lette
 .marquee-track span:nth-child(even) { font-family: var(--font-serif); font-style: italic; color: var(--metal); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* Коллекция */
+/* Каталог */
 .collection { background: var(--bg-2); clip-path: polygon(0 5vw, 100% 0, 100% calc(100% - 5vw), 0 100%); padding-block: calc(clamp(80px, 14vh, 200px) + 5vw); }
 .coll-bar { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
 .coll-ctrl { display: flex; align-items: center; gap: 1.2rem; }
@@ -503,7 +503,7 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 500; lette
 .acc-inner > div { padding: 0 0 1.8rem calc(1.6rem + 5.5rem); color: var(--text-dim); display: grid; gap: .8rem; max-width: 46em; }
 .acc-inner b { color: var(--text); font-weight: 500; }
 
-/* Цифры */
+/* Характеристики */
 .numbers { overflow: hidden; }
 .gauges { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(20px, 2.4vw, 40px); align-items: center; }
 .gauge { position: relative; grid-column: span 4; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; padding: 1.4rem 0; border-top: 1px solid var(--line); }
@@ -779,7 +779,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
   <div class="orbit-disc" aria-hidden="false">
     <span class="orbit-pointer" aria-hidden="true"></span>
     <div class="orbit-info" aria-live="polite">
-      <div class="oi-head"><span class="oi-num">01 / 06</span><span class="oi-label">Манифест</span></div>
+      <div class="oi-head"><span class="oi-num">01 / 06</span><span class="oi-label">О магазине</span></div>
       <span class="oi-desc">Зачем часовщику небо</span>
     </div>
   </div>
@@ -788,34 +788,34 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
   </button>
   <ul class="nav-list" id="navList">
     <li class="nav-item" style="--i:0">
-      <a class="nav-link" href="#manifest"><svg class="ico" aria-hidden="true"><use href="#i-manifest"/></svg><span class="nav-num">01</span><span class="nav-label">Манифест</span><span class="nav-desc">Зачем часовщику небо и три правила мастерской</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub0" aria-label="Подразделы: Манифест"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
-      <ul class="sub" id="sub0"><li><a href="#principles">Три правила <small>I–III</small></a></li><li><a href="#not-doing">Чего мы не делаем <small>04</small></a></li></ul>
+      <a class="nav-link" href="#manifest"><svg class="ico" aria-hidden="true"><use href="#i-manifest"/></svg><span class="nav-num">01</span><span class="nav-label">О магазине</span><span class="nav-desc">Как подобрать оптику под свои задачи</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub0" aria-label="Подразделы: О магазине"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="sub" id="sub0"><li><a href="#principles">Преимущества <small>01–03</small></a></li><li><a href="#not-doing">Важные параметры <small>04</small></a></li></ul>
     </li>
     <li class="nav-item" style="--i:1">
-      <a class="nav-link" href="#collection"><svg class="ico" aria-hidden="true"><use href="#i-collection"/></svg><span class="nav-num">02</span><span class="nav-label">Коллекция</span><span class="nav-desc">Пять инструментов сезона 2026/27</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub1" aria-label="Подразделы: Коллекция"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
-      <ul class="sub" id="sub1"><li><a href="#collection" data-open-piece="0">Перигелий <small>7 экз.</small></a></li><li><a href="#collection" data-open-piece="1">Нокта <small>12 экз.</small></a></li><li><a href="#collection" data-open-piece="4">Апсида <small>1 экз.</small></a></li></ul>
+      <a class="nav-link" href="#collection"><svg class="ico" aria-hidden="true"><use href="#i-collection"/></svg><span class="nav-num">02</span><span class="nav-label">Каталог</span><span class="nav-desc">Телескопы и оптическое оборудование</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub1" aria-label="Подразделы: Каталог"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="sub" id="sub1"><li><a href="#collection" data-open-piece="0">Рефракторы <small>категория</small></a></li><li><a href="#collection" data-open-piece="1">Рефлекторы <small>категория</small></a></li><li><a href="#collection" data-open-piece="4">Астрофото <small>категория</small></a></li></ul>
     </li>
     <li class="nav-item" style="--i:2">
-      <a class="nav-link" href="#process"><svg class="ico" aria-hidden="true"><use href="#i-craft"/></svg><span class="nav-num">03</span><span class="nav-label">Ремесло</span><span class="nav-desc">Пять этапов и четырнадцать месяцев работы</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub2" aria-label="Подразделы: Ремесло"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
-      <ul class="sub" id="sub2"><li><a href="#process">Этапы работы <small>01–05</small></a></li><li><a href="#process" data-open-sheet="tpl-workshop">Мастерская <small>панель</small></a></li></ul>
+      <a class="nav-link" href="#process"><svg class="ico" aria-hidden="true"><use href="#i-craft"/></svg><span class="nav-num">03</span><span class="nav-label">Как выбрать</span><span class="nav-desc">Пять шагов к подходящему телескопу</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub2" aria-label="Подразделы: Как выбрать"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="sub" id="sub2"><li><a href="#process">Этапы работы <small>01–05</small></a></li><li><a href="#process" data-open-sheet="tpl-workshop">Магазин <small>панель</small></a></li></ul>
     </li>
     <li class="nav-item" style="--i:3">
-      <a class="nav-link" href="#numbers"><svg class="ico" aria-hidden="true"><use href="#i-numbers"/></svg><span class="nav-num">04</span><span class="nav-label">Цифры</span><span class="nav-desc">Точность, которую можно проверить</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub3" aria-label="Подразделы: Цифры"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <a class="nav-link" href="#numbers"><svg class="ico" aria-hidden="true"><use href="#i-numbers"/></svg><span class="nav-num">04</span><span class="nav-label">Характеристики</span><span class="nav-desc">Подбор оборудования под реальные задачи</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub3" aria-label="Подразделы: Характеристики"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
       <ul class="sub" id="sub3"><li><a href="#numbers">Приборы и допуски <small>05</small></a></li><li><a href="#contact">Очередь сезона <small>9/24</small></a></li></ul>
     </li>
     <li class="nav-item" style="--i:4">
-      <a class="nav-link" href="#voices"><svg class="ico" aria-hidden="true"><use href="#i-voices"/></svg><span class="nav-num">05</span><span class="nav-label">Голоса</span><span class="nav-desc">Владельцы о первой ночи с инструментом</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub4" aria-label="Подразделы: Голоса"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <a class="nav-link" href="#voices"><svg class="ico" aria-hidden="true"><use href="#i-voices"/></svg><span class="nav-num">05</span><span class="nav-label">Советы</span><span class="nav-desc">Подсказки для начинающих и опытных</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub4" aria-label="Подразделы: Советы"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
       <ul class="sub" id="sub4"><li><a href="#voices" data-open-sheet="tpl-story-1">Дом в Казани <small>история</small></a></li><li><a href="#voices" data-open-sheet="tpl-story-3">Северная читальня <small>история</small></a></li></ul>
     </li>
     <li class="nav-item" style="--i:5">
-      <a class="nav-link" href="#contact"><svg class="ico" aria-hidden="true"><use href="#i-contact"/></svg><span class="nav-num">06</span><span class="nav-label">Заявка</span><span class="nav-desc">Начать разговор о вашем небе</span></a>
-      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub5" aria-label="Подразделы: Заявка"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
-      <ul class="sub" id="sub5"><li><a href="#request">Форма заявки <small>2 мин</small></a></li><li><a href="#contact">Контакты мастерской <small>СПб</small></a></li></ul>
+      <a class="nav-link" href="#contact"><svg class="ico" aria-hidden="true"><use href="#i-contact"/></svg><span class="nav-num">06</span><span class="nav-label">Консультация</span><span class="nav-desc">Помощь с подбором телескопа</span></a>
+      <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub5" aria-label="Подразделы: Консультация"><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="sub" id="sub5"><li><a href="#request">Запрос консультации</a></li><li><a href="#contact">Контакты магазина</a></li></ul>
     </li>
   </ul>
   <span class="nav-ink" aria-hidden="true"></span>
@@ -832,17 +832,17 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
     <div class="hero-vignette" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow mono" data-hero>Мастерская небесных инструментов · с 2009 года</p>
-        <h1 id="hero-title" data-hero><span class="ln">Небо,</span><span class="ln">собранное</span><span class="ln"><em>вручную</em></span></h1>
-        <p class="hero-lead" data-hero>«Эклиптика» делает механические планетарии и астрономические хронометры, которые показывают небо над вашей точкой Земли — с погрешностью восемь десятых угловой секунды на четыреста лет вперёд. Двадцать четыре инструмента в год.</p>
+        <p class="eyebrow mono" data-hero>Телескопы и оптика для наблюдения за Вселенной</p>
+        <h1 id="hero-title" data-hero><span class="ln">Вселенная</span><span class="ln">ближе,</span><span class="ln"><em>чем кажется</em></span></h1>
+        <p class="hero-lead" data-hero>Телескопы, оптические аксессуары и оборудование для тех, кто хочет увидеть Луну, планеты, звёздные скопления и далёкие галактики. Поможем разобраться в характеристиках и подобрать конфигурацию под ваши задачи.</p>
         <div class="hero-cta" data-hero>
-          <span class="magnet" data-magnetic><a class="btn btn-hex" href="#request" data-cursor="hex"><span>Заказать инструмент</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></span>
-          <a class="btn btn-capsule" href="#collection" data-cursor="link"><span>Смотреть коллекцию</span></a>
+          <span class="magnet" data-magnetic><a class="btn btn-hex" href="#request" data-cursor="hex"><span>Подобрать телескоп</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></span>
+          <a class="btn btn-capsule" href="#collection" data-cursor="link"><span>Перейти в каталог</span></a>
         </div>
       </div>
       <aside class="readout" aria-label="Приборная панель фона">
         <div class="ro-count" aria-hidden="true"><span id="roIdx">01</span>&thinsp;<span>/ 05</span></div>
-        <p class="ro-title" id="roTitle" aria-live="polite">Жидкая платина</p>
+        <p class="ro-title" id="roTitle" aria-live="polite">Оптика для наблюдений</p>
         <div class="ro-meta mono" aria-hidden="true">
           <span>Широта <b>59°56′ с.</b></span>
           <span>Курсор <b id="roXY">0.500 · 0.500</b></span>
@@ -860,32 +860,32 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">01</span>
         <div>
-          <p class="sec-tag mono">§ 01 — Манифест</p>
-          <h2 class="sec-title" id="manifest-title" data-reveal>Мы не делаем часы. Мы делаем <em>место</em>, где время снова видно.</h2>
+          <p class="sec-tag mono">§ 01 — О магазине</p>
+          <h2 class="sec-title" id="manifest-title" data-reveal>Оборудование, которое открывает <em>новые горизонты</em>.</h2>
         </div>
       </div>
-      <p class="manifest-statement" id="statement">Двести лет назад время сверяли по небу. Сегодня оно живёт в телефоне и ничего не весит. Наши инструменты возвращают ему вес: латунь, платину, сапфир и движение планет, которое можно наблюдать за утренним кофе. Каждый из них рассчитан под одно конкретное небо — ваше.</p>
+      <p class="manifest-statement" id="statement">Наблюдение за космосом начинается с правильно подобранной оптики. Мы помогаем выбрать телескоп не по громким обещаниям, а по реальным задачам: что вы хотите увидеть, откуда будете наблюдать и насколько важна мобильность оборудования.</p>
 
       <ol class="principles" id="principles">
         <li class="principle" data-reveal>
           <span class="p-num">ПРАВИЛО I</span>
-          <h3>Небо конкретного человека</h3>
-          <p>Инструмент рассчитывается под координаты, важные владельцу: место рождения, дом, точку первой встречи. Два одинаковых «Перигелия» не существуют — у них разные звёзды.</p>
+          <h3>Под задачи наблюдателя</h3>
+          <p>Для Луны и планет, туманностей или астрофотографии нужны разные характеристики. Начните с цели наблюдений — она определит подходящий тип оптики и монтировки.</p>
         </li>
         <li class="principle" data-reveal>
           <span class="p-num">ПРАВИЛО II</span>
-          <h3>Механика без батареек</h3>
-          <p>До 1 140 деталей, ручной завод раз в сорок дней и ни одной микросхемы. Инструмент работает, пока его заводят, — даже когда выключено всё остальное.</p>
+          <h3>Оптика и конструкция</h3>
+          <p>Рефракторы, рефлекторы и катадиоптрики отличаются конструкцией, габаритами и особенностями обслуживания. Объясняем различия простым языком и помогаем сравнить варианты.</p>
         </li>
         <li class="principle" data-reveal>
           <span class="p-num">ПРАВИЛО III</span>
-          <h3>Четыреста лет вперёд</h3>
-          <p>Эфемериды на 2026–2426 годы гравируются на внутреннем диске. Мы проектируем вещь, которая переживёт и мастерскую, и владельца, и будет честно показывать небо его правнукам.</p>
+          <h3>Выбор с пониманием</h3>
+          <p>Расскажем, на какие параметры смотреть: апертура, фокусное расстояние, светосила, монтировка и комплект окуляров. Характеристики конкретных моделей должны соответствовать данным производителя.</p>
         </li>
       </ol>
 
       <div class="dropdown" id="not-doing">
-        <button class="dropdown-btn" type="button" aria-expanded="false" aria-controls="notDoingPanel" data-cursor="link">Чего мы не делаем — четыре отказа <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <button class="dropdown-btn" type="button" aria-expanded="false" aria-controls="notDoingPanel" data-cursor="link">Что важно знать перед покупкой <svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button>
         <div class="dropdown-panel" id="notDoingPanel" role="region" aria-label="Чего мы не делаем">
           <ul>
             <li><span>01</span>Не выпускаем серийных моделей: каждая коллекция закрывается после последнего экземпляра.</li>
@@ -911,12 +911,12 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">02</span>
         <div>
-          <p class="sec-tag mono">§ 02 — Коллекция</p>
-          <h2 class="sec-title" id="coll-title" data-reveal>Сезон 2026/27: <em>пять</em> инструментов, сорок девять экземпляров</h2>
+          <p class="sec-tag mono">§ 02 — Каталог</p>
+          <h2 class="sec-title" id="coll-title" data-reveal>Подберите телескоп для <em>своих наблюдений</em></h2>
         </div>
       </div>
       <div class="coll-bar">
-        <p class="mono" style="color:var(--text-dim)">Листайте колесом, перетаскиванием или стрелками</p>
+        <p class="mono" style="color:var(--text-dim)">Демонстрационные категории и конфигурации. Цены и наличие уточняются.</p>
         <div class="coll-ctrl">
           <button class="btn btn-diamond" type="button" id="collPrev" aria-label="Предыдущий инструмент" aria-controls="rail" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
           <div class="coll-progress" aria-hidden="true"><i></i></div>
@@ -924,69 +924,69 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
         </div>
       </div>
     </div>
-    <div class="rail-scroll" id="rail" tabindex="0" role="region" aria-label="Галерея инструментов, прокручивается горизонтально" data-cursor="drag">
+    <div class="rail-scroll" id="rail" tabindex="0" role="region" aria-label="Подборка телескопов и оптических конфигураций" data-cursor="drag">
       <article class="piece" data-piece="0" data-seed="3">
         <div class="piece-in">
-          <div class="piece-top mono"><b>№ 01</b><span>тираж 7</span></div>
+          <div class="piece-top mono"><b>№ 01</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
-          <h3>Перигелий</h3>
-          <p class="kind">Настольная армиллярная сфера-хронометр</p>
-          <div class="piece-foot"><span class="mono">14 месяцев</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Подробнее</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <h3>AETHER 80 AZ</h3>
+          <p class="kind">Рефрактор · для первых наблюдений</p>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
-            <p>Девять колец из платины 950 вращаются вокруг сапфировой сферы. Внешнее кольцо показывает местное звёздное время, внутренние — Солнце, Луну и пять видимых глазом планет так, как их увидит владелец над выбранной точкой Земли.</p>
-            <dl class="specs"><dt>Материалы</dt><dd>Платина 950, сапфир, чёрный гранит</dd><dt>Механизм</dt><dd>Калибр E-11, 1 140 деталей</dd><dt>Запас хода</dt><dd>40 дней</dd><dt>Точность</dt><dd>0,8″ на 400 лет</dd><dt>Размеры</dt><dd>Ø 320 мм, высота 410 мм</dd><dt>Тираж</dt><dd>7 экземпляров, свободно 3</dd></dl>
+            <p>Компактный рефракторный телескоп для знакомства с Луной, яркими планетами и наземными объектами. Пример категории для начинающих; реальные характеристики и комплектация требуют подтверждения.</p>
+            <dl class="specs"><dt>Оптическая схема</dt><dd>Рефрактор</dd><dt>Апертура</dt><dd>80 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Азимутальная</dd><dt>Назначение</dt><dd>Луна, планеты, наземные наблюдения</dd><dt>Комплектация</dt><dd>Уточняется по модели</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
       <article class="piece" data-piece="1" data-seed="7">
         <div class="piece-in">
-          <div class="piece-top mono"><b>№ 02</b><span>тираж 12</span></div>
+          <div class="piece-top mono"><b>№ 02</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
-          <h3>Нокта</h3>
-          <p class="kind">Наручный планетарий с турбийоном</p>
-          <div class="piece-foot"><span class="mono">11 месяцев</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Подробнее</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <h3>NOVA 130 EQ</h3>
+          <p class="kind">Рефлектор Ньютона · универсальный старт</p>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
-            <p>Семь планет на циферблате диаметром тридцать один миллиметр. Меркурий делает оборот за 88 дней, Сатурн — за двадцать девять с половиной лет. На обороте под сапфировой крышкой — звёздная карта неба в момент, который вы назовёте.</p>
-            <dl class="specs"><dt>Корпус</dt><dd>Белое золото, 43 мм</dd><dt>Механизм</dt><dd>Калибр E-7T, турбийон за 60 секунд</dd><dt>Запас хода</dt><dd>72 часа</dd><dt>Водозащита</dt><dd>30 м</dd><dt>Ремешок</dt><dd>Кожа аллигатора, складная застёжка</dd><dt>Тираж</dt><dd>12 экземпляров, свободно 4</dd></dl>
+            <p>Зеркальная оптическая схема с большей апертурой в доступном формате. Подходит как пример товара для тех, кто хочет изучать Луну, планеты и яркие объекты глубокого космоса.</p>
+            <dl class="specs"><dt>Оптическая схема</dt><dd>Рефлектор Ньютона</dd><dt>Апертура</dt><dd>130 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Экваториальная</dd><dt>Назначение</dt><dd>Луна, планеты, яркие туманности</dd><dt>Комплектация</dt><dd>Уточняется по модели</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
       <article class="piece" data-piece="2" data-seed="11">
         <div class="piece-in">
-          <div class="piece-top mono"><b>№ 03</b><span>тираж 5</span></div>
+          <div class="piece-top mono"><b>№ 03</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
-          <h3>Сизигия</h3>
-          <p class="kind">Настенный лунно-солнечный календарь</p>
-          <div class="piece-foot"><span class="mono">16 месяцев</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Подробнее</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <h3>LUMEN 127 MAK</h3>
+          <p class="kind">Катадиоптрик · компактная оптика</p>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
-            <p>Метровый диск из бронзы с шампань-патиной. Показывает фазы Луны, восход и закат и заранее предупреждает о каждом затмении, видимом из вашего города, вплоть до 2426 года. За сутки до затмения на диске открывается сапфировое окно.</p>
-            <dl class="specs"><dt>Материалы</dt><dd>Бронза, сапфир, морёный дуб</dd><dt>Механизм</dt><dd>Калибр E-19, ручной завод</dd><dt>Запас хода</dt><dd>60 дней</dd><dt>Индикации</dt><dd>Фазы, затмения, восход, закат</dd><dt>Размеры</dt><dd>Ø 900 мм, вес 31 кг</dd><dt>Тираж</dt><dd>5 экземпляров, свободно 1</dd></dl>
+            <p>Компактная схема Максутова-Кассегрена для наблюдений Луны и планет. Пример карточки товара; точные параметры должны быть взяты из спецификации производителя.</p>
+            <dl class="specs"><dt>Оптическая схема</dt><dd>Максутов-Кассегрен</dd><dt>Апертура</dt><dd>127 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Подбирается отдельно</dd><dt>Назначение</dt><dd>Луна, планеты, двойные звёзды</dd><dt>Комплектация</dt><dd>Уточняется по модели</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
       <article class="piece" data-piece="3" data-seed="5">
         <div class="piece-in">
-          <div class="piece-top mono"><b>№ 04</b><span>тираж 24</span></div>
+          <div class="piece-top mono"><b>№ 04</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
-          <h3>Азимут-9</h3>
-          <p class="kind">Карманная астролябия-компас</p>
-          <div class="piece-foot"><span class="mono">8 месяцев</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Подробнее</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <h3>DEEPSKY 200 DOB</h3>
+          <p class="kind">Рефлектор Добсона · визуальная астрономия</p>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
-            <p>Инструмент путешественника: девять сменных пластин хранят небо девяти выбранных мест. Поверните лимб — и астролябия покажет, где сейчас взойдёт Солнце над домом, даже если вы на другом конце света.</p>
-            <dl class="specs"><dt>Корпус</dt><dd>Титан Grade 5, 58 мм</dd><dt>Пластины</dt><dd>9 сменных, гравировка вручную</dd><dt>Компас</dt><dd>Сапфировый подшипник</dd><dt>Вес</dt><dd>112 г</dd><dt>Футляр</dt><dd>Орех и замша</dd><dt>Тираж</dt><dd>24 экземпляра, свободно 9</dd></dl>
+            <p>Пример крупноапертурного телескопа для визуальных наблюдений. Такой формат выбирают, когда приоритет — сбор света и наблюдение объектов глубокого космоса, а не компактность.</p>
+            <dl class="specs"><dt>Оптическая схема</dt><dd>Рефлектор Ньютона</dd><dt>Апертура</dt><dd>200 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Добсона</dd><dt>Назначение</dt><dd>Туманности, скопления, галактики</dd><dt>Комплектация</dt><dd>Уточняется по модели</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
       <article class="piece" data-piece="4" data-seed="13">
         <div class="piece-in">
-          <div class="piece-top mono"><b>№ 05</b><span>тираж 1</span></div>
+          <div class="piece-top mono"><b>№ 05</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
-          <h3>Апсида</h3>
-          <p class="kind">Архитектурный кинетический объект</p>
-          <div class="piece-foot"><span class="mono">22 месяца</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Подробнее</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <h3>ASTROGRAPH 80</h3>
+          <p class="kind">Апохроматический рефрактор · астрофото</p>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
-            <p>Трёхметровая орбитальная скульптура для атриума, библиотеки или частной обсерватории. Ровно в истинный полдень кольца проворачиваются и на мгновение выстраиваются в линию Солнце — Земля. Проектируется вместе с архитектором здания.</p>
-            <dl class="specs"><dt>Материалы</dt><dd>Нержавеющая сталь, латунь, сапфир</dd><dt>Механизм</dt><dd>Гиревой привод, калибр E-1</dd><dt>Размеры</dt><dd>Ø 3 000 мм, подвес до 9 м</dd><dt>Установка</dt><dd>Бригада из 6 мастеров, 3 недели</dd><dt>Обслуживание</dt><dd>Пожизненное</dd><dt>Тираж</dt><dd>1 экземпляр в год</dd></dl>
+            <p>Пример компактной оптической трубы для астрофотографии широких полей. Для полноценного комплекта дополнительно подбираются монтировка с ведением, камера и необходимые адаптеры.</p>
+            <dl class="specs"><dt>Оптическая схема</dt><dd>Апохроматический рефрактор</dd><dt>Апертура</dt><dd>80 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Экваториальная с ведением</dd><dt>Назначение</dt><dd>Астрофотография широкого поля</dd><dt>Комплектация</dt><dd>Камера и аксессуары отдельно</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
@@ -999,19 +999,19 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">03</span>
         <div>
-          <p class="sec-tag mono">§ 03 — Ремесло</p>
-          <h2 class="sec-title" id="process-title" data-reveal>От разговора <em>до первой ночи</em> — четырнадцать месяцев</h2>
+          <p class="sec-tag mono">§ 03 — Как выбрать</p>
+          <h2 class="sec-title" id="process-title" data-reveal>От первой цели <em>до ясного выбора</em></h2>
         </div>
       </div>
       <div class="process-wrap">
         <div class="process-aside" data-reveal>
-          <p>Над каждым инструментом работают астроном, конструктор, гравёр и три часовщика. Вы получаете фотоотчёт после каждого этапа и можете приехать в мастерскую в любой из них.</p>
-          <button class="btn btn-cut" type="button" data-open-sheet="tpl-workshop" data-cursor="open" style="justify-self:start"><span>Как устроена мастерская</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+          <p>Выбор телескопа не должен превращаться в изучение десятков непонятных терминов. Разберём задачу по шагам: от объекта наблюдений до подходящей оптики и устойчивой монтировки.</p>
+          <button class="btn btn-cut" type="button" data-open-sheet="tpl-workshop" data-cursor="open" style="justify-self:start"><span>Как работает подбор</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
         </div>
         <div class="steps" id="steps" data-acc-group>
           <span class="steps-line" aria-hidden="true"><i></i></span>
           <div class="acc-item open" style="--i:0">
-            <h3><button class="acc-btn" type="button" id="ab1" aria-expanded="true" aria-controls="ap1" data-cursor="link"><span class="a-num">01</span><span><span class="a-title">Разговор о небе</span><span class="a-time mono">2 недели</span></span><span class="a-ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="acc-btn" type="button" id="ab1" aria-expanded="true" aria-controls="ap1" data-cursor="link"><span class="a-num">01</span><span><span class="a-title">Что хотите наблюдать</span><span class="a-time mono">2 недели</span></span><span class="a-ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3>
             <div class="acc-panel" id="ap1" role="region" aria-labelledby="ab1"><div class="acc-inner"><div><p>Мы встречаемся лично — в мастерской или у вас. Выбираем до трёх точек на Земле и одну дату, которую инструмент будет помнить всегда.</p><p><b>Результат:</b> эскиз, список координат и выбор материалов.</p></div></div></div>
           </div>
           <div class="acc-item" style="--i:1">
@@ -1041,27 +1041,27 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">04</span>
         <div>
-          <p class="sec-tag mono">§ 04 — Цифры</p>
-          <h2 class="sec-title" id="numbers-title" data-reveal>Точность, которую <em>можно проверить</em> по ночному небу</h2>
+          <p class="sec-tag mono">§ 04 — Основы выбора</p>
+          <h2 class="sec-title" id="numbers-title" data-reveal>Параметры, которые <em>действительно важны</em></h2>
         </div>
       </div>
       <div class="gauges">
         <div class="gauge big" data-reveal>
           <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><g class="ticks-g"></g><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46" style="--p:0"/></svg>
-            <div class="center"><span class="g-val" data-count="1140" data-p="1">1 140</span><span class="g-unit mono">деталей</span></div></div>
-          <p class="g-cap">столько деталей в калибре E-11 «Перигелия» — и каждая проходит через руки мастера минимум трижды</p>
+            <div class="center"><span class="g-val" data-count="5" data-p=".5">5</span><span class="g-unit mono">демо-моделей</span></div></div>
+          <p class="g-cap">столько демо-моделей в калибре E-11 «Перигелия» — и каждая проходит через руки мастера минимум трижды</p>
         </div>
         <div class="gauge" data-reveal>
-          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="24" data-p=".24">24</span></div></div>
-          <div><h3>инструмента в год</h3><p class="g-cap">Больше мы не берём: каждый мастер ведёт не более двух работ одновременно.</p></div>
+          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="3" data-p=".3">3</span></div></div>
+          <div><h3>типа оптических схем</h3><p class="g-cap">рефракторы, рефлекторы и катадиоптрики — основные оптические схемы</p></div>
         </div>
         <div class="gauge" data-reveal>
-          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="400" data-p=".8">400</span></div></div>
-          <div><h3>лет эфемерид</h3><p class="g-cap">Положения светил рассчитаны и выгравированы до 2426 года.</p></div>
+          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="5" data-p=".5">5</span></div></div>
+          <div><h3>главных объектов наблюдений</h3><p class="g-cap">Луна, планеты, звёздные скопления, туманности и галактики — разные цели наблюдений.</p></div>
         </div>
         <div class="gauge" data-reveal>
-          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="0.8" data-dec="1" data-p=".08">0,8″</span></div></div>
-          <div><h3>угловой секунды</h3><p class="g-cap">Максимальное расхождение с реальным небом за весь срок службы.</p></div>
+          <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="1" data-p=".1">1</span></div></div>
+          <div><h3>варианта использования</h3><p class="g-cap">Максимальное расхождение с реальным небом за весь срок службы.</p></div>
         </div>
         <div class="gauge" data-reveal>
           <div class="dial"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="track" cx="50" cy="50" r="46"/><circle class="val" cx="50" cy="50" r="46"/></svg><div class="center"><span class="g-val" data-count="31" data-p=".62">31</span></div></div>
@@ -1081,22 +1081,22 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">05</span>
         <div>
-          <p class="sec-tag mono">§ 05 — Голоса</p>
-          <h2 class="sec-title" id="voices-title" data-reveal>Владельцы о <em>первой ночи</em></h2>
+          <p class="sec-tag mono">§ 05 — Помощь в выборе</p>
+          <h2 class="sec-title" id="voices-title" data-reveal>Что важно знать <em>перед покупкой</em></h2>
         </div>
       </div>
       <div class="voices-grid">
         <figure class="voice" data-reveal>
-          <blockquote>Мы поставили «Сизигию» в доме, где выросла мама. Теперь затмения у нас — семейный праздник: за сутки открывается сапфировое окно, и все съезжаются.</blockquote>
-          <figcaption><span class="who"><b>Е. В.</b><span>архитектор, Казань · владеет с 2023 года</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-1" data-cursor="open"><span>Читать историю</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
+          <blockquote>Для Луны и планет важны стабильная монтировка, достаточная апертура и возможность точно наводиться на объект. Начните с того, что хотите наблюдать чаще всего.</blockquote>
+          <figcaption><span class="who"><b>Луна и планеты</b><span>Памятка по выбору оборудования</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-1" data-cursor="open"><span>Читать памятку</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
         </figure>
         <figure class="voice" data-reveal>
-          <blockquote>Я ношу «Нокту» третий год и до сих пор ловлю себя на том, что проверяю по ней не время, а где сейчас Марс.</blockquote>
-          <figcaption><span class="who"><b>М. Л.</b><span>инженер-конструктор, Новосибирск</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-2" data-cursor="open"><span>Читать историю</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
+          <blockquote>Для туманностей и галактик особенно важны апертура и тёмное небо. Учитывайте также вес телескопа: крупную оптику должно быть удобно вывозить за город.</blockquote>
+          <figcaption><span class="who"><b>Глубокий космос</b><span>Памятка по условиям наблюдения</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-2" data-cursor="open"><span>Читать памятку</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
         </figure>
         <figure class="voice" data-reveal>
-          <blockquote>«Апсида» висит в атриуме нашей библиотеки. Дети приходят к полудню, чтобы увидеть, как кольца выстраиваются в линию, — и остаются читать про небо.</blockquote>
-          <figcaption><span class="who"><b>Фонд «Северная читальня»</b><span>публичная библиотека · установка 2025 года</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-3" data-cursor="open"><span>Читать историю</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
+          <blockquote>Астрофотография требует не только телескопа. Важны точное ведение, монтировка, камера, адаптеры и программное обеспечение — комплект лучше планировать целиком.</blockquote>
+          <figcaption><span class="who"><b>Астрофотография</b><span>Памятка по составу системы</span></span><button class="btn btn-cut" type="button" data-open-sheet="tpl-story-3" data-cursor="open"><span>Читать памятку</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></figcaption>
         </figure>
       </div>
     </div>
@@ -1108,48 +1108,48 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
       <div class="sec-head">
         <span class="sec-num" aria-hidden="true">06</span>
         <div>
-          <p class="sec-tag mono">§ 06 — Заявка</p>
-          <h2 class="sec-title" id="contact-title" data-reveal>Начнём разговор о <em>вашем небе</em></h2>
+          <p class="sec-tag mono">§ 06 — Консультация</p>
+          <h2 class="sec-title" id="contact-title" data-reveal>Найдём телескоп <em>под ваши задачи</em></h2>
         </div>
       </div>
       <div class="contact-grid">
         <div class="contact-info" data-reveal>
-          <p>Расскажите, какое небо для вас важно. Мы отвечаем лично, в течение двух рабочих дней, и предлагаем время встречи в мастерской или у вас.</p>
+          <p>Опишите, что хотите наблюдать и где планируете использовать телескоп. Пока каталог демонстрационный: реальные модели, цены, наличие и условия заказа нужно будет добавить отдельно.</p>
           <div class="queue">
-            <span class="mono" style="color:var(--metal)">Очередь сезона 2027 — свободно 9 мест из 24</span>
+            <span class="mono" style="color:var(--metal)">Помощь с выбором оборудования</span>
             <div class="queue-bar" aria-hidden="true" id="queueBar"></div>
           </div>
           <div class="contact-list">
-            <span class="mono" style="color:var(--text-dim)">Мастерская</span>
-            <span>Обсерваторный квартал, Северная линия, 7</span>
-            <a href="mailto:atelier@ekliptika.example">atelier@ekliptika.example</a>
-            <span class="mono" style="color:var(--text-dim)">Пн–Пт, 11:00–19:00 · ночные визиты по записи</span>
+            <span class="mono" style="color:var(--text-dim)">Магазин</span>
+            <span>Контактные данные магазина добавляются владельцем</span>
+            <a href="mailto:Контактный email пока не настроен">Контактный email пока не настроен</a>
+            <span class="mono" style="color:var(--text-dim)">Условия работы и доставки уточняются</span>
           </div>
         </div>
-        <form class="form" id="request" novalidate aria-label="Заявка на инструмент">
+        <form class="form" id="request" novalidate aria-label="Запрос на консультацию по телескопу">
           <div class="field">
-            <label class="mono" for="f-name">Как к вам обращаться</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Имя и отчество" aria-describedby="e-name" data-cursor="text">
+            <label class="mono" for="f-name">Ваше имя</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Как к вам обращаться" aria-describedby="e-name" data-cursor="text">
             <span class="err" id="e-name" aria-live="polite"></span>
           </div>
           <div class="field">
-            <label class="mono" for="f-contact">Телефон или почта</label>
+            <label class="mono" for="f-contact">Телефон или email</label>
             <input id="f-contact" name="contact" type="text" autocomplete="email" required placeholder="Как удобнее ответить" aria-describedby="e-contact" data-cursor="text">
             <span class="err" id="e-contact" aria-live="polite"></span>
           </div>
           <div class="field wide">
-            <label class="mono" for="f-piece">Инструмент</label>
+            <label class="mono" for="f-piece">Что хотите подобрать</label>
             <select id="f-piece" name="piece">
               <option value="">Пока не выбрал — нужна консультация</option>
-              <option>Перигелий</option><option>Нокта</option><option>Сизигия</option><option>Азимут-9</option><option>Апсида</option>
+              <option>Рефрактор</option><option>Рефлектор Ньютона</option><option>Катадиоптрик</option><option>Телескоп для астрофотографии</option><option>Нужна помощь с выбором</option>
             </select>
           </div>
           <div class="field wide">
-            <label class="mono" for="f-sky">Какое небо для вас важно</label>
-            <textarea id="f-sky" name="sky" placeholder="Например: небо над Пулковом в ночь на 14 августа 1998 года" data-cursor="text"></textarea>
+            <label class="mono" for="f-sky">Что планируете наблюдать</label>
+            <textarea id="f-sky" name="sky" placeholder="Например: Луна, планеты, туманности или астрофотография" data-cursor="text"></textarea>
           </div>
           <div class="form-foot">
-            <p>Форма ничего не отправляет по сети: это демонстрационная страница вымышленной мастерской.</p>
+            <p>Форма пока демонстрационная и не отправляет данные. Для приёма заявок требуется подключить реальный сервис или серверный endpoint.</p>
             <span class="magnet" data-magnetic>
               <button class="btn btn-liquid" type="submit" data-cursor="hex">
                 <svg viewBox="0 0 220 100" aria-hidden="true" preserveAspectRatio="none">
@@ -1164,7 +1164,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           </div>
           <div class="success" role="status" tabindex="-1" id="success">
             <span class="mono" style="color:var(--metal)">Статус · принято</span>
-            <h3>Заявка <em>принята</em></h3>
+            <h3>Консультация <em>принята</em></h3>
             <p id="successText">Спасибо. Мастер свяжется с вами в течение двух рабочих дней, чтобы договориться о встрече.</p>
             <button class="btn btn-capsule" type="button" id="again" style="justify-self:start" data-cursor="link"><span>Заполнить ещё одну</span></button>
           </div>
@@ -1189,12 +1189,12 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
 <div class="scrim" id="scrim" aria-hidden="true"></div>
 
 <aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
-  <div class="dlg-head"><span class="mono" id="sheetKicker">Мастерская</span><button class="btn btn-circle" type="button" data-close aria-label="Закрыть панель" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div class="dlg-head"><span class="mono" id="sheetKicker">Магазин</span><button class="btn btn-circle" type="button" data-close aria-label="Закрыть панель" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button></div>
   <div class="dlg-body" id="sheetBody"></div>
 </aside>
 
 <div class="card-dlg" id="cardDlg" role="dialog" aria-modal="true" aria-labelledby="cardTitle" hidden>
-  <div class="dlg-head"><span class="mono" id="cardKicker">Коллекция · № 01</span><button class="btn btn-circle" type="button" data-close aria-label="Закрыть карточку" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+  <div class="dlg-head"><span class="mono" id="cardKicker">Каталог · демонстрационная модель</span><button class="btn btn-circle" type="button" data-close aria-label="Закрыть карточку" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button></div>
   <div class="card-body">
     <div class="wrap card-grid">
       <div class="card-art" id="cardArt" aria-hidden="true"></div>
@@ -1203,8 +1203,8 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
         <h2 id="cardTitle"></h2>
         <div id="cardMore" style="display:grid;gap:1.4rem"></div>
         <div class="card-actions">
-          <span class="magnet" data-magnetic><a class="btn btn-hex" href="#request" id="cardCta" data-cursor="hex"><span>Обсудить инструмент</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></span>
-          <button class="btn btn-capsule" type="button" data-close data-cursor="link"><span>Вернуться к коллекции</span></button>
+          <span class="magnet" data-magnetic><a class="btn btn-hex" href="#request" id="cardCta" data-cursor="hex"><span>Запросить консультацию</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></span>
+          <button class="btn btn-capsule" type="button" data-close data-cursor="link"><span>Вернуться в каталог</span></button>
         </div>
       </div>
     </div>
@@ -1212,38 +1212,17 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
 </div>
 
 <template id="tpl-workshop">
-  <span data-kicker>Ремесло · мастерская</span>
-  <h2 id="sheetTitle">Как устроена <em>мастерская</em></h2>
-  <p class="lead">Три этажа бывшей обсерваторской библиотеки. Внизу — станки, посередине — сборка, наверху — купол с телескопом, по которому мы сверяем каждый инструмент перед передачей.</p>
-  <p>В мастерской нет конвейера: один инструмент от первой детали до последнего винта ведёт один и тот же старший мастер. Его инициалы гравируются на внутреннем диске рядом с вашими координатами.</p>
-  <blockquote>Мы проверяем не по эталону. Мы проверяем по небу.</blockquote>
-  <p>Температура в сборочном зале держится на 21 °C круглый год, влажность — 45 %. Пыль — главный враг механики, поэтому в зал не входят в уличной обуви, а мастера работают в льняных халатах без ворса.</p>
-  <p>Раз в месяц мастерская открыта для владельцев и тех, кто стоит в очереди: можно увидеть свой инструмент в работе и посмотреть в телескоп.</p>
+  <span data-kicker>Подбор телескопа · инструкция</span>
+  <h2 id="sheetTitle">Как выбрать <em>телескоп</em></h2>
+  <p class="lead">Начните с главного вопроса: что вы хотите увидеть? Для Луны и планет важны одни сочетания апертуры, фокусного расстояния и монтировки; для туманностей и галактик — другие.</p>
+  <p>Для первых наблюдений часто выбирают простую в настройке систему и устойчивую монтировку. Для астрофотографии особенно важны точное ведение, стабильность и совместимость оборудования.</p>
+  <blockquote>Сначала задача. Затем оптика. И только потом — конкретная модель.</blockquote>
+  <p>Перед покупкой проверьте комплект поставки, совместимость окуляров и искателя, тип монтировки, вес и габариты. Не ориентируйтесь только на максимальное увеличение: апертура и качество оптики важнее рекламных цифр.</p>
+  <p>Если сомневаетесь между несколькими моделями, сравните их по объектам наблюдений, условиям использования и удобству транспортировки. Реальные рекомендации появятся после заполнения каталога.</p>
 </template>
-<template id="tpl-story-1">
-  <span data-kicker>История владельца · Казань</span>
-  <h2 id="sheetTitle">Окно, которое <em>открывается</em> раз в год</h2>
-  <p class="lead">«Мы выбрали три точки: роддом, где родилась мама, дом её детства и место, где она встретила отца. Мастер сказал, что из всех трёх в ближайшие сорок лет будет видно одиннадцать затмений».</p>
-  <p>«Сизигия» висит в гостиной над старым пианино. Инструмент заводится раз в два месяца — это стало обязанностью младшего сына, и он относится к ней серьёзнее, чем к урокам.</p>
-  <blockquote>Первое затмение мы встречали вдесятером. Окно открылось ночью, и утром все сидели на крыше с закопчёнными стёклами — как в детстве.</blockquote>
-  <p>Через год мастер приехал на плановую проверку и привёз в подарок паспорт с расчётом всех затмений до 2426 года. «Теперь у нас есть календарь семейных праздников на четыре века вперёд», — смеётся Е. В.</p>
-</template>
-<template id="tpl-story-2">
-  <span data-kicker>История владельца · Новосибирск</span>
-  <h2 id="sheetTitle">Марс на <em>запястье</em></h2>
-  <p class="lead">«Я конструктор, и мне всегда было мало просто красивых часов. Мне нужно было понимать, что внутри. В мастерской мне показали каждый расчёт».</p>
-  <p>На обороте «Нокты» М. Л. — звёздная карта ночи, когда родилась его дочь. Небо рассчитано для конкретного двора на окраине Академгородка, с поправкой на высоту над уровнем моря.</p>
-  <blockquote>Однажды на совещании я посмотрел на руку и сказал: «Марс сейчас в Деве». Никто не понял, а мне стало спокойно.</blockquote>
-  <p>За три года турбийон ни разу не потребовал регулировки. На плановом обслуживании мастер только сменил ремешок и почистил сапфир.</p>
-</template>
-<template id="tpl-story-3">
-  <span data-kicker>История владельца · публичная библиотека</span>
-  <h2 id="sheetTitle">Полдень в <em>читальном зале</em></h2>
-  <p class="lead">«Апсида» — единственный инструмент мастерской, который принадлежит не человеку, а городу. Фонд «Северная читальня» заказал её для атриума отреставрированной библиотеки.</p>
-  <p>Проект занял двадцать два месяца: конструкцию согласовывали с архитектором, чтобы в истинный полдень луч из верхнего окна проходил точно через сапфировую линзу в центре колец.</p>
-  <blockquote>В первый месяц в библиотеку записалось на четыреста детей больше, чем за весь прошлый год.</blockquote>
-  <p>Каждую пятницу в полдень у «Апсиды» проходит короткая лекция о небе. Читают её по очереди астрономы мастерской и старшеклассники из кружка при библиотеке.</p>
-</template>
+<template id="tpl-story-1"><span data-kicker>Памятка · Луна и планеты</span><h2 id="sheetTitle">Наблюдение <em>Луны</em></h2><p class="lead">Луна — один из самых благодарных объектов для первых наблюдений. Рельеф особенно выразителен вдоль линии терминатора, где солнечный свет падает под малым углом.</p><p>Для начала важны удобная настройка, устойчивая монтировка и окуляры с разными увеличениями. Не стремитесь к максимальному увеличению: атмосфера и состояние оптики ограничивают полезную детализацию.</p><blockquote>Начните с малого увеличения и постепенно подбирайте более детальный обзор.</blockquote></template>
+<template id="tpl-story-2"><span data-kicker>Памятка · планеты</span><h2 id="sheetTitle">Планеты <em>Солнечной системы</em></h2><p class="lead">Юпитер и Сатурн — популярные цели для визуальных наблюдений. Результат зависит от апертуры, качества оптики, атмосферы и точной юстировки.</p><p>Для планетарных наблюдений полезны устойчивое ведение и возможность комфортно работать на увеличениях выше базовых. Конкретную модель выбирайте по проверенным характеристикам, а не по рекламному значению максимального увеличения.</p></template>
+<template id="tpl-story-3"><span data-kicker>Памятка · астрофотография</span><h2 id="sheetTitle">Система для <em>астрофото</em></h2><p class="lead">Астрофотография — это система, в которой телескоп является лишь одной частью. Монтировка с ведением, камера, гидирование, питание и программное обеспечение влияют на результат не меньше оптики.</p><p>Перед покупкой проверьте совместимость всех компонентов и рассчитайте нагрузку на монтировку. Для широких полей часто удобнее короткофокусная оптика.</p></template>
 
 <!-- ============ FX ============ -->
 <canvas class="fx" id="fx" aria-hidden="true"></canvas>
@@ -1263,11 +1242,11 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
    остаётся процедурная сцена. Для своих фото запустите любой локальный сервер.
    ========================================================================== */
 const FRAMES = [
-  { src: '', scene: 0, title: 'Жидкая платина' },
-  { src: '', scene: 1, title: 'Световые дюны' },
-  { src: '', scene: 2, title: 'Сапфировая туманность' },
-  { src: '', scene: 3, title: 'Каустика кристалла' },
-  { src: '', scene: 4, title: 'Кольцо затмения' }
+  { src: '', scene: 0, title: 'Оптика для наблюдений' },
+  { src: '', scene: 1, title: 'Луна и планеты' },
+  { src: '', scene: 2, title: 'Глубокий космос' },
+  { src: '', scene: 3, title: 'Астрофотография' },
+  { src: '', scene: 4, title: 'Оборудование и аксессуары' }
 ];
 const FRAME_HOLD = 6.5;      // секунд на кадр
 const FRAME_TRANSITION = 1.9; // секунд на переход
@@ -2096,7 +2075,7 @@ void main(){
     const name = $('h3', p).textContent;
     $('#cardTitle').textContent = name;
     $('#cardKind').textContent = $('.kind', p).textContent;
-    $('#cardKicker').textContent = `Коллекция · ${$('.piece-top b', p).textContent}`;
+    $('#cardKicker').textContent = `Каталог · ${$('.piece-top b', p).textContent}`;
     $('#cardMore').innerHTML = $('.more', p).innerHTML;
     $('#cardArt').innerHTML = orrerySVG(+p.dataset.seed, true);
     $('#cardCta span').textContent = `Обсудить «${name}»`;
@@ -2263,7 +2242,7 @@ void main(){
   const cio = new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { runCounter(en.target); cio.unobserve(en.target); } }), { threshold: .4 });
   $$('[data-count]').forEach(el => cio.observe(el));
 
-  /* Манифест: слова «загораются» при прокрутке (текст виден всегда) */
+  /* О магазине: слова «загораются» при прокрутке (текст виден всегда) */
   const st = $('#statement');
   st.innerHTML = st.textContent.split(/(\s+)/).map(w => /\s/.test(w) ? w : `<span class="w">${w}</span>`).join('');
   const words = $$('.w', st);
