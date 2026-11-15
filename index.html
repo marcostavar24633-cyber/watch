@@ -4,8 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AETHERIUM — телескопы и астрономическое оборудование</title>
-<meta name="description" content="AETHERIUM — телескопы и оборудование для наблюдения за Луной, планетами, звёздами и далёкими галактиками. Подбор оптики для начинающих и опытных наблюдателей.">
+<meta name="description" content="AETHERIUM — демонстрационная концепция каталога телескопов: рефракторы, рефлекторы, катадиоптрики и оборудование для астрофотографии. Справочная информация для выбора оптической схемы.">
 <meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#07080c">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="AETHERIUM">
+<meta property="og:title" content="AETHERIUM — каталог телескопов и оптики">
+<meta property="og:description" content="Демонстрационный каталог оптических схем: рефракторы, рефлекторы, катадиоптрики и решения для астрофотографии.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AETHERIUM — каталог телескопов и оптики">
+<meta name="twitter:description" content="Демонстрационный каталог телескопов и справочная информация для выбора оптики.">
 <script>
   /* Тема и вид меню применяются до первой отрисовки — без вспышки */
   try {
@@ -728,6 +737,12 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
   .sec-num, .scroll-meter i { animation: none !important; }
 }
 
+/* AETHERIUM catalog SEO introduction */
+.catalog-seo-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);margin:2.4rem auto 0;padding:1.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);width:min(calc(100% - 2 * var(--gutter)),var(--maxw))}
+.catalog-seo-intro h3{font:400 clamp(1.15rem,1rem + .9vw,1.8rem)/1.25 var(--font-display);max-width:22ch}
+.catalog-seo-copy{display:grid;gap:.8rem;color:var(--text-dim);font-size:var(--fs-s)}
+.catalog-seo-copy strong{color:var(--text);font-weight:600}
+
 /* AETHERIUM catalog controls */
 .catalog-tools{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(150px,1fr) minmax(170px,1fr);gap:12px;align-items:end;margin:22px auto 18px;width:min(calc(100% - 2 * var(--gutter)),var(--maxw))}
 .catalog-tools label{display:grid;gap:7px;min-width:0}
@@ -760,7 +775,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
 .product-action:hover,.product-action[aria-pressed="true"]{border-color:var(--metal);background:var(--metal);color:var(--metal-ink)}
 .piece[hidden]{display:none!important}
 .catalog-no-results{padding:30px var(--gutter);text-align:center;color:var(--text-dim);font-size:13px}
-@media(max-width:760px){.catalog-tools{grid-template-columns:1fr 1fr}.catalog-search{grid-column:1/-1}.catalog-sort{grid-column:1/-1}.catalog-actions{justify-content:flex-start}.piece-actions{gap:4px}.product-action{width:31px;height:31px}.catalog-compare{display:block;overflow-x:auto;white-space:nowrap}}
+@media(max-width:760px){.catalog-seo-intro{grid-template-columns:1fr;gap:1rem}.catalog-tools{grid-template-columns:1fr 1fr}.catalog-search{grid-column:1/-1}.catalog-sort{grid-column:1/-1}.catalog-actions{justify-content:flex-start}.piece-actions{gap:4px}.product-action{width:31px;height:31px}.catalog-compare{display:block;overflow-x:auto;white-space:nowrap}}
 @media(max-width:420px){.catalog-tools{grid-template-columns:1fr}.catalog-search,.catalog-sort{grid-column:auto}.catalog-action{padding:8px 11px;font-size:10px}}
 
 </style>
@@ -968,6 +983,19 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           <button class="btn btn-diamond" type="button" id="collNext" aria-label="Следующий инструмент" aria-controls="rail" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
+      <section class="catalog-seo-intro" aria-labelledby="catalog-seo-title">
+        <div>
+          <span class="mono" style="color:var(--metal)">СПРАВОЧНИК ПО ОПТИКЕ</span>
+          <h3 id="catalog-seo-title">Как устроены основные типы телескопов</h3>
+        </div>
+        <div class="catalog-seo-copy">
+          <p><strong>Рефракторы</strong> используют линзовый объектив. При выборе проверяют апертуру, фокусное расстояние, качество коррекции и устойчивость монтировки.</p>
+          <p><strong>Рефлекторы Ньютона</strong> формируют изображение зеркалами. Важно учитывать необходимость периодической юстировки, габариты трубы и условия хранения.</p>
+          <p><strong>Катадиоптрики</strong> сочетают зеркала и линзы. Сравнивайте не только компактность, но и фокусное расстояние, термостабилизацию и совместимость с аксессуарами.</p>
+          <p><strong>Для астрофотографии</strong> оценивают всю систему: монтировку с ведением, допустимую нагрузку, фокусёр, камеру и необходимые корректоры. Подробности зависят от конкретной конфигурации.</p>
+          <p>Представленные ниже позиции — демонстрационные примеры, а не подтверждённые товарные предложения. Характеристики, комплект и совместимость реальных моделей должны сверяться с документацией производителя.</p>
+        </div>
+      </section>
       <div class="catalog-tools" aria-label="Инструменты каталога">
         <label class="catalog-search"><span class="mono">Поиск</span><input id="catalogSearch" type="search" placeholder="Название или тип телескопа" autocomplete="off"></label>
         <label class="catalog-filter"><span class="mono">Категория</span><select id="catalogCategory"><option value="all">Все категории</option><option value="refractor">Рефракторы</option><option value="reflector">Рефлекторы</option><option value="catadioptric">Катадиоптрики</option><option value="astrophoto">Для астрофото</option></select></label>
