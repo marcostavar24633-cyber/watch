@@ -480,6 +480,15 @@ em { font-family: var(--font-serif); font-style: italic; font-weight: 500; lette
 .piece-foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; transform: translateZ(30px); flex-wrap: wrap; }
 .piece-foot .mono { color: var(--text-dim); }
 .more { display: none; }
+.product-detail-block { display:grid; gap:.8rem; padding:1.35rem 0; border-top:1px solid var(--line); }
+.product-detail-block > .mono { color:var(--metal); }
+.product-detail-block h3 { font:400 clamp(1.1rem,1rem + .7vw,1.55rem)/1.25 var(--font-display); }
+.product-detail-block p, .detail-checklist { color:var(--text-dim); font-size:var(--fs-s); }
+.detail-checklist { display:grid; gap:.65rem; padding-left:1.2rem; list-style:disc; }
+.detail-disclaimer { padding:.8rem 1rem; border-left:2px solid var(--accent); background:var(--glass); }
+.product-detail-actions { display:flex; flex-wrap:wrap; gap:.65rem; }
+.product-detail-actions .btn { min-height:44px; padding-inline:1rem; font-size:.78rem; }
+.product-detail-actions .is-active { border-color:var(--accent); color:var(--accent); }
 
 /* Процесс */
 .process-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 3rem; align-items: start; }
@@ -1254,6 +1263,27 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
         <span class="kind mono" id="cardKind"></span>
         <h2 id="cardTitle"></h2>
         <div id="cardMore" style="display:grid;gap:1.4rem"></div>
+        <section class="product-detail-block" aria-labelledby="detailUseTitle">
+          <span class="mono">СЦЕНАРИИ НАБЛЮДЕНИЙ</span>
+          <h3 id="detailUseTitle">Для каких задач рассматривать</h3>
+          <p id="detailUseText">Оцените предполагаемые объекты наблюдений, условия хранения и доступное место для установки. Итоговый выбор зависит от подтверждённых характеристик конкретной модели.</p>
+        </section>
+        <section class="product-detail-block" aria-labelledby="detailKitTitle">
+          <span class="mono">АКСЕССУАРЫ И СОВМЕСТИМОСТЬ</span>
+          <h3 id="detailKitTitle">Что проверить дополнительно</h3>
+          <ul class="detail-checklist">
+            <li>Окуляры с подходящими фокусными расстояниями и посадочным диаметром.</li>
+            <li>Искатель или систему наведения, совместимую с трубой.</li>
+            <li>Лунный/планетный фильтр — только при подтверждённой совместимости.</li>
+            <li>Устойчивость монтировки, крепления и допустимую нагрузку.</li>
+          </ul>
+          <p class="detail-disclaimer">Это список для проверки перед покупкой, а не подтверждённая комплектация. Совместимость аксессуаров необходимо уточнить по паспорту модели.</p>
+        </section>
+        <div class="product-detail-actions" aria-label="Действия с демонстрационной конфигурацией">
+          <button class="btn btn-capsule" type="button" data-detail-action="favorite">♡ В избранное</button>
+          <button class="btn btn-capsule" type="button" data-detail-action="compare">⇄ Сравнить</button>
+          <button class="btn btn-capsule" type="button" data-detail-action="cart">＋ В подборку</button>
+        </div>
         <div class="card-actions">
           <span class="magnet" data-magnetic><a class="btn btn-hex" href="#request" id="cardCta" data-cursor="hex"><span>Запросить консультацию</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></span>
           <button class="btn btn-capsule" type="button" data-close data-cursor="link"><span>Вернуться в каталог</span></button>
@@ -2249,12 +2279,46 @@ void main(){
     $('#cardKind').textContent = $('.kind', p).textContent;
     $('#cardKicker').textContent = `Каталог · ${$('.piece-top b', p).textContent}`;
     $('#cardMore').innerHTML = $('.more', p).innerHTML;
+    const detailUse = {
+      refractor: 'Рассматривайте эту оптическую схему для Луны, ярких планет и наземных наблюдений; перед выбором проверьте реальную апертуру, фокусное расстояние и комплект окуляров.',
+      reflector: 'Зеркальная схема может быть интересна для визуальных наблюдений слабых объектов при достаточной апертуре. Уточните требования к юстировке, охлаждению и габаритам.',
+      catadioptric: 'Компактная закрытая оптическая схема может подойти для наблюдений с ограниченным местом хранения. Проверьте фокусное расстояние, время термостабилизации и особенности монтировки.',
+      astrophotography: 'Для съёмки оценивайте всю систему: монтировку с ведением, нагрузку, фокусёр, корректор поля и совместимость с камерой. Одна труба не гарантирует готовность к астрофото.'
+    };
+    $('#detailUseText').textContent = detailUse[p.dataset.category] || 'Сценарий использования уточняется после проверки спецификации производителя.';
+    $('[data-detail-action]', cardDlg).forEach(b => {
+      const key = {favorite:'favorites',compare:'compare',cart:'cart'}[b.dataset.detailAction];
+      const active = catalogState[key].includes(name);
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', String(active));
+      b.textContent = (active ? '✓ ' : '') + ({favorite:'♡ В избранное',compare:'⇄ Сравнить',cart:'＋ В подборку'}[b.dataset.detailAction]);
+    });
     $('#cardArt').innerHTML = orrerySVG(+p.dataset.seed, true);
     $('#cardCta span').textContent = `Обсудить «${name}»`;
     $('#cardCta').dataset.piece = name;
     $('.card-body', cardDlg).scrollTop = 0;
     showDialog(cardDlg, from || $('.btn-cut', p));
   }
+  $('[data-detail-action]', cardDlg).forEach(b => b.addEventListener('click', e => {
+    const key = {favorite:'favorites',compare:'compare',cart:'cart'}[e.currentTarget.dataset.detailAction];
+    const name = $('#cardTitle').textContent.trim();
+    const list = catalogState[key];
+    if (list.includes(name)) catalogState[key] = list.filter(n => n !== name);
+    else if (key === 'compare' && list.length >= 3) {
+      catalogPanelTitle.textContent = 'Сравнение телескопов';
+      catalogPanelContent.innerHTML = '<p class="catalog-empty">Для сравнения можно выбрать не более трёх моделей.</p>';
+      catalogPanel.hidden = false;
+      return;
+    } else catalogState[key].push(name);
+    saveCatalogState();
+    $('[data-detail-action]', cardDlg).forEach(x => {
+      const k = {favorite:'favorites',compare:'compare',cart:'cart'}[x.dataset.detailAction];
+      const active = catalogState[k].includes(name);
+      x.classList.toggle('is-active', active);
+      x.setAttribute('aria-pressed', String(active));
+      x.textContent = (active ? '✓ ' : '') + ({favorite:'♡ В избранное',compare:'⇄ Сравнить',cart:'＋ В подборку'}[x.dataset.detailAction]);
+    });
+  }));
   $('#cardCta').addEventListener('click', e => {
     const sel = $('#f-piece'); sel.value = e.currentTarget.dataset.piece || '';
     hideDialog(true);
