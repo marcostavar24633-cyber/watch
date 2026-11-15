@@ -718,6 +718,42 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
   .grain { animation: none; }
   .sec-num, .scroll-meter i { animation: none !important; }
 }
+
+/* AETHERIUM catalog controls */
+.catalog-tools{display:grid;grid-template-columns:minmax(180px,1.5fr) minmax(150px,1fr) minmax(170px,1fr);gap:12px;align-items:end;margin:22px auto 18px;width:min(calc(100% - 2 * var(--gutter)),var(--maxw))}
+.catalog-tools label{display:grid;gap:7px;min-width:0}
+.catalog-tools label>span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim)}
+.catalog-tools input,.catalog-tools select{width:100%;min-height:46px;padding:0 14px;border:1px solid var(--line-strong);border-radius:14px;background:var(--glass-strong);color:var(--text);font:500 13px var(--font-text);outline:none}
+.catalog-tools input:focus,.catalog-tools select:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
+.catalog-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.catalog-action,.catalog-panel-close{border:1px solid var(--line-strong);border-radius:999px;background:transparent;color:var(--text);padding:9px 14px;font:500 11px var(--font-text);cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.catalog-action b{display:inline-grid;place-items:center;min-width:20px;height:20px;margin-left:5px;border-radius:50%;background:var(--bg-3);font:500 10px var(--font-mono)}
+.catalog-action[aria-pressed="true"],.catalog-action:hover{background:var(--metal);color:var(--metal-ink);border-color:var(--metal)}
+.catalog-panel{width:min(calc(100% - 2 * var(--gutter)),var(--maxw));margin:0 auto 24px;padding:clamp(16px,2.4vw,28px);border:1px solid var(--line-strong);border-radius:22px;background:var(--glass-strong);box-shadow:var(--shadow)}
+.catalog-panel[hidden]{display:none}
+.catalog-panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px}
+.catalog-panel-head .mono{font-size:10px;letter-spacing:.16em;color:var(--metal)}
+.catalog-panel-head h3{font:500 clamp(20px,2vw,28px) var(--font-display);margin:8px 0 0}
+.catalog-panel-close{width:38px;height:38px;padding:0;font-size:24px}
+.catalog-list{display:grid;gap:8px}
+.catalog-list-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.catalog-list-row strong{display:block;font:500 12px var(--font-display);letter-spacing:.02em}
+.catalog-list-row small{display:block;margin-top:5px;color:var(--text-dim);font:11px var(--font-text)}
+.catalog-remove{border:0;background:transparent;color:var(--metal);font:11px var(--font-text);cursor:pointer;padding:8px}
+.catalog-empty{padding:18px 0;color:var(--text-dim);font-size:13px}
+.catalog-compare{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:12px}
+.catalog-compare th,.catalog-compare td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+.catalog-compare th{color:var(--metal);font-weight:600}
+.catalog-note{font-size:11px;line-height:1.6;color:var(--text-dim);margin:16px 0}
+.catalog-consult{display:inline-flex;margin-top:4px}
+.piece-actions{display:flex;align-items:center;gap:6px}
+.product-action{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--text);font:16px var(--font-text);cursor:pointer;transition:all .25s}
+.product-action:hover,.product-action[aria-pressed="true"]{border-color:var(--metal);background:var(--metal);color:var(--metal-ink)}
+.piece[hidden]{display:none!important}
+.catalog-no-results{padding:30px var(--gutter);text-align:center;color:var(--text-dim);font-size:13px}
+@media(max-width:760px){.catalog-tools{grid-template-columns:1fr 1fr}.catalog-search{grid-column:1/-1}.catalog-sort{grid-column:1/-1}.catalog-actions{justify-content:flex-start}.piece-actions{gap:4px}.product-action{width:31px;height:31px}.catalog-compare{display:block;overflow-x:auto;white-space:nowrap}}
+@media(max-width:420px){.catalog-tools{grid-template-columns:1fr}.catalog-search,.catalog-sort{grid-column:auto}.catalog-action{padding:8px 11px;font-size:10px}}
+
 </style>
 </head>
 <body>
@@ -923,22 +959,38 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           <button class="btn btn-diamond" type="button" id="collNext" aria-label="Следующий инструмент" aria-controls="rail" data-cursor="link"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
+      <div class="catalog-tools" aria-label="Инструменты каталога">
+        <label class="catalog-search"><span class="mono">Поиск</span><input id="catalogSearch" type="search" placeholder="Название или тип телескопа" autocomplete="off"></label>
+        <label class="catalog-filter"><span class="mono">Категория</span><select id="catalogCategory"><option value="all">Все категории</option><option value="refractor">Рефракторы</option><option value="reflector">Рефлекторы</option><option value="catadioptric">Катадиоптрики</option><option value="astrophoto">Для астрофото</option></select></label>
+        <label class="catalog-sort"><span class="mono">Сортировка</span><select id="catalogSort"><option value="default">По умолчанию</option><option value="name">По названию</option><option value="aperture-desc">Апертура: больше сначала</option><option value="aperture-asc">Апертура: меньше сначала</option></select></label>
+        <div class="catalog-actions">
+          <button class="catalog-action" type="button" id="showFavorites" aria-pressed="false">Избранное <b id="favoriteCount">0</b></button>
+          <button class="catalog-action" type="button" id="showCompare" aria-pressed="false">Сравнение <b id="compareCount">0</b></button>
+          <button class="catalog-action" type="button" id="showCart" aria-pressed="false">Подборка <b id="cartCount">0</b></button>
+        </div>
+      </div>
+      <div class="catalog-panel" id="catalogPanel" hidden aria-live="polite">
+        <div class="catalog-panel-head"><div><span class="mono">ВАША ПОДБОРКА</span><h3 id="catalogPanelTitle">Сохранённые товары</h3></div><button class="catalog-panel-close" type="button" id="closeCatalogPanel" aria-label="Закрыть панель">×</button></div>
+        <div id="catalogPanelContent"></div>
+        <p class="catalog-note">Это список для сравнения и консультации, не оформленный заказ. Цены и наличие пока не подключены.</p>
+        <a class="btn btn-capsule catalog-consult" href="#contact" id="catalogConsult"><span>Обсудить подборку</span></a>
+      </div>
     </div>
     <div class="rail-scroll" id="rail" tabindex="0" role="region" aria-label="Подборка телескопов и оптических конфигураций" data-cursor="drag">
-      <article class="piece" data-piece="0" data-seed="3">
+      <article class="piece" data-piece="0" data-seed="3" data-category="refractor" data-aperture="80">
         <div class="piece-in">
           <div class="piece-top mono"><b>№ 01</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
           <h3>AETHER 80 AZ</h3>
           <p class="kind">Рефрактор · для первых наблюдений</p>
-          <div class="piece-foot"><span class="mono">Цена уточняется</span><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+          <div class="piece-foot"><span class="mono">Цена уточняется</span><div class="piece-actions"><button class="product-action" type="button" data-product-action="favorite" aria-label="В избранное" aria-pressed="false">♡</button><button class="product-action" type="button" data-product-action="compare" aria-label="Добавить к сравнению" aria-pressed="false">⇄</button><button class="product-action" type="button" data-product-action="cart" aria-label="Добавить в подборку" aria-pressed="false">＋</button><button class="btn btn-cut" type="button" data-cursor="open"><span>Характеристики</span><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
           <div class="more">
             <p>Компактный рефракторный телескоп для знакомства с Луной, яркими планетами и наземными объектами. Пример категории для начинающих; реальные характеристики и комплектация требуют подтверждения.</p>
             <dl class="specs"><dt>Оптическая схема</dt><dd>Рефрактор</dd><dt>Апертура</dt><dd>80 мм · пример конфигурации</dd><dt>Монтировка</dt><dd>Азимутальная</dd><dt>Назначение</dt><dd>Луна, планеты, наземные наблюдения</dd><dt>Комплектация</dt><dd>Уточняется по модели</dd><dt>Статус</dt><dd>Демонстрационный пример · не товарное предложение</dd></dl>
           </div>
         </div>
       </article>
-      <article class="piece" data-piece="1" data-seed="7">
+      <article class="piece" data-piece="1" data-seed="7" data-category="reflector" data-aperture="130">
         <div class="piece-in">
           <div class="piece-top mono"><b>№ 02</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
@@ -951,7 +1003,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           </div>
         </div>
       </article>
-      <article class="piece" data-piece="2" data-seed="11">
+      <article class="piece" data-piece="2" data-seed="11" data-category="catadioptric" data-aperture="127">
         <div class="piece-in">
           <div class="piece-top mono"><b>№ 03</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
@@ -964,7 +1016,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           </div>
         </div>
       </article>
-      <article class="piece" data-piece="3" data-seed="5">
+      <article class="piece" data-piece="3" data-seed="5" data-category="reflector" data-aperture="200">
         <div class="piece-in">
           <div class="piece-top mono"><b>№ 04</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
@@ -977,7 +1029,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           </div>
         </div>
       </article>
-      <article class="piece" data-piece="4" data-seed="13">
+      <article class="piece" data-piece="4" data-seed="13" data-category="astrophoto" data-aperture="80">
         <div class="piece-in">
           <div class="piece-top mono"><b>№ 05</b><span>Демо-конфигурация</span></div>
           <div class="piece-art" aria-hidden="true"></div>
@@ -1164,7 +1216,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor [dat
           </div>
           <div class="success" role="status" tabindex="-1" id="success">
             <span class="mono" style="color:var(--metal)">Статус · локальная демонстрация</span>
-            <h3>Демо-проверка <em>завершена</em></h3>
+            <h3>Проверка формы <em>пройдена</em></h3>
             <p id="successText">Это локальная демонстрация интерфейса. Данные формы не отправлены и магазин не получил ваш запрос.</p>
             <button class="btn btn-capsule" type="button" id="again" style="justify-self:start" data-cursor="link"><span>Заполнить ещё одну</span></button>
           </div>
@@ -2065,6 +2117,125 @@ void main(){
     showDialog(sheet, from);
   }
   const pieces = $$('.piece');
+
+  /* AETHERIUM: каталог, избранное, сравнение и подборка */
+  const catalogSearch = $('#catalogSearch');
+  const catalogCategory = $('#catalogCategory');
+  const catalogSort = $('#catalogSort');
+  const catalogPanel = $('#catalogPanel');
+  const catalogPanelTitle = $('#catalogPanelTitle');
+  const catalogPanelContent = $('#catalogPanelContent');
+  const catalogButtons = {
+    favorites: $('#showFavorites'),
+    compare: $('#showCompare'),
+    cart: $('#showCart')
+  };
+  const catalogState = { favorites: [], compare: [], cart: [] };
+  const catalogStorageKey = 'aetherium-catalog-v1';
+  try {
+    const saved = JSON.parse(localStorage.getItem(catalogStorageKey) || '{}');
+    ['favorites','compare','cart'].forEach(k => {
+      if (Array.isArray(saved[k])) catalogState[k] = saved[k].filter(n => pieces.some(p => $('h3',p).textContent === n));
+    });
+  } catch (_) {}
+  const productInfo = p => ({
+    name: $('h3',p).textContent.trim(),
+    kind: $('.kind',p).textContent.trim(),
+    category: p.dataset.category,
+    aperture: Number(p.dataset.aperture || 0),
+    specs: $$('.specs dt',p).map((dt,i) => [dt.textContent, dt.nextElementSibling ? dt.nextElementSibling.textContent : ''])
+  });
+  function saveCatalogState(){
+    try { localStorage.setItem(catalogStorageKey, JSON.stringify(catalogState)); } catch (_) {}
+    $('#favoriteCount').textContent = catalogState.favorites.length;
+    $('#compareCount').textContent = catalogState.compare.length;
+    $('#cartCount').textContent = catalogState.cart.length;
+    pieces.forEach(p => {
+      const name = $('h3',p).textContent.trim();
+      [['favorite','favorites'],['compare','compare'],['cart','cart']].forEach(([action,key]) => {
+        const b = $('[data-product-action="'+action+'"]',p);
+        if (!b) return;
+        const active = catalogState[key].includes(name);
+        b.setAttribute('aria-pressed',String(active));
+        b.textContent = action === 'favorite' ? (active ? '♥' : '♡') : action === 'compare' ? (active ? '✓' : '⇄') : (active ? '✓' : '＋');
+      });
+    });
+  }
+  function applyCatalogFilters(){
+    const q = catalogSearch.value.trim().toLocaleLowerCase('ru');
+    const cat = catalogCategory.value;
+    const visible = [];
+    pieces.forEach(p => {
+      const data = productInfo(p);
+      const haystack = (data.name+' '+data.kind+' '+$('.more',p).textContent).toLocaleLowerCase('ru');
+      const show = (!q || haystack.includes(q)) && (cat === 'all' || data.category === cat);
+      p.hidden = !show;
+      if (show) visible.push(p);
+    });
+    const mode = catalogSort.value;
+    visible.sort((a,b) => {
+      if(mode === 'name') return productInfo(a).name.localeCompare(productInfo(b).name,'ru');
+      if(mode === 'aperture-desc') return productInfo(b).aperture-productInfo(a).aperture;
+      if(mode === 'aperture-asc') return productInfo(a).aperture-productInfo(b).aperture;
+      return Number(a.dataset.piece)-Number(b.dataset.piece);
+    });
+    visible.forEach(p => rail.appendChild(p));
+    let empty = $('#catalogNoResults');
+    if(!visible.length){
+      if(!empty){empty=document.createElement('p');empty.id='catalogNoResults';empty.className='catalog-no-results';empty.textContent='По вашему запросу ничего не найдено. Измените фильтры.';rail.appendChild(empty);}
+    } else if(empty) empty.remove();
+  }
+  function escapeCatalogText(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function renderCatalogPanel(key){
+    const titles={favorites:'Избранное',compare:'Сравнение телескопов',cart:'Ваша подборка'};
+    catalogPanelTitle.textContent=titles[key];
+    catalogPanel.hidden=false;
+    Object.entries(catalogButtons).forEach(([k,b])=>b.setAttribute('aria-pressed',String(k===key)));
+    const chosen=catalogState[key].map(name=>pieces.find(p=>$('h3',p).textContent.trim()===name)).filter(Boolean);
+    if(!chosen.length){catalogPanelContent.innerHTML='<p class="catalog-empty">Здесь пока пусто. Добавьте модели из каталога.</p>';return;}
+    if(key==='compare'){
+      const rows=[['Модель',p=>productInfo(p).name],['Тип',p=>productInfo(p).kind],['Апертура',p=>productInfo(p).aperture ? productInfo(p).aperture+' мм · пример' : 'Не указана'],['Цена',p=>'Уточняется'],['Наличие',p=>'Не подтверждено']];
+      catalogPanelContent.innerHTML='<div style="overflow-x:auto"><table class="catalog-compare"><thead><tr><th>Параметр</th>'+chosen.map(p=>'<th>'+escapeCatalogText(productInfo(p).name)+'</th>').join('')+'</tr></thead><tbody>'+rows.slice(1).map(([label,get])=>'<tr><th>'+label+'</th>'+chosen.map(p=>'<td>'+escapeCatalogText(get(p))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><div class="catalog-list">'+chosen.map(p=>'<div class="catalog-list-row"><div><strong>'+escapeCatalogText(productInfo(p).name)+'</strong><small>'+escapeCatalogText(productInfo(p).kind)+'</small></div><button class="catalog-remove" type="button" data-catalog-remove="'+escapeCatalogText(productInfo(p).name)+'">Убрать</button></div>').join('')+'</div>';
+    } else {
+      catalogPanelContent.innerHTML='<div class="catalog-list">'+chosen.map(p=>'<div class="catalog-list-row"><div><strong>'+escapeCatalogText(productInfo(p).name)+'</strong><small>'+escapeCatalogText(productInfo(p).kind)+' · цена уточняется</small></div><button class="catalog-remove" type="button" data-catalog-remove="'+escapeCatalogText(productInfo(p).name)+'">Убрать</button></div>').join('')+'</div>';
+    }
+  }
+  function closeCatalogPanel(){catalogPanel.hidden=true;Object.values(catalogButtons).forEach(b=>b.setAttribute('aria-pressed','false'));}
+  Object.entries(catalogButtons).forEach(([key,b])=>b.addEventListener('click',()=>renderCatalogPanel(key)));
+  $('#closeCatalogPanel').addEventListener('click',closeCatalogPanel);
+  catalogPanelContent.addEventListener('click',e=>{
+    const b=e.target.closest('[data-catalog-remove]');
+    if(!b)return;
+    const name=b.dataset.catalogRemove;
+    const key=Object.keys(catalogButtons).find(k=>catalogButtons[k].getAttribute('aria-pressed')==='true');
+    if(!key)return;
+    catalogState[key]=catalogState[key].filter(n=>n!==name);
+    saveCatalogState();renderCatalogPanel(key);
+  });
+  catalogSearch.addEventListener('input',applyCatalogFilters);
+  catalogCategory.addEventListener('change',applyCatalogFilters);
+  catalogSort.addEventListener('change',applyCatalogFilters);
+  pieces.forEach(p=>{
+    p.querySelectorAll('[data-product-action]').forEach(b=>b.addEventListener('click',e=>{
+      e.preventDefault();e.stopPropagation();
+      const name=$('h3',p).textContent.trim();
+      const key={favorite:'favorites',compare:'compare',cart:'cart'}[b.dataset.productAction];
+      const list=catalogState[key];
+      if(list.includes(name)) catalogState[key]=list.filter(n=>n!==name);
+      else if(key==='compare' && list.length>=3){catalogPanelContent.innerHTML='<p class="catalog-empty">Для сравнения можно выбрать не более трёх моделей.</p>';catalogPanel.hidden=false;catalogPanelTitle.textContent='Сравнение телескопов';return;}
+      else catalogState[key].push(name);
+      saveCatalogState();
+      if(!catalogPanel.hidden){const active=Object.keys(catalogButtons).find(k=>catalogButtons[k].getAttribute('aria-pressed')==='true');if(active)renderCatalogPanel(active);}
+    }));
+  });
+  $('#catalogConsult').addEventListener('click',()=>{
+    const names=catalogState.cart.length?catalogState.cart:catalogState.compare;
+    if(names.length) $('#f-sky').value='Хочу обсудить подбор: '+names.join(', ')+'. Цены и наличие прошу уточнить.';
+    closeCatalogPanel();
+  });
+  saveCatalogState();
+  applyCatalogFilters();
+
   function openCard(i, from) {
     const p = pieces[i]; if (!p) return;
     const r = (from && from.closest('.piece-in') || $('.piece-in', p)).getBoundingClientRect();
@@ -2166,7 +2337,7 @@ void main(){
     $('.piece-art', p).innerHTML = orrerySVG(+p.dataset.seed, false);
     const inEl = $('.piece-in', p);
     $('.btn-cut', p).addEventListener('click', e => { e.stopPropagation(); openCard(i, e.currentTarget); });
-    inEl.addEventListener('click', () => { if (!railDragged) openCard(i, $('.btn-cut', p)); });
+    inEl.addEventListener('click', e => { if (e.target.closest('[data-product-action]')) return; if (!railDragged) openCard(i, $('.btn-cut', p)); });
     if (finePointer && !reduced) {
       inEl.addEventListener('pointermove', e => {
         const r = inEl.getBoundingClientRect();
@@ -2299,7 +2470,7 @@ void main(){
     if (!b) { $('#f-contact').focus(); return; }
     const name = $('#f-name').value.trim().split(/\s+/)[0];
     const piece = $('#f-piece').value;
-    $('#successText').textContent = `Спасибо, ${name}. ${piece ? `Мастер, который ведёт «${piece}», ` : 'Мастер '}свяжется с вами в течение двух рабочих дней, чтобы договориться о встрече.`;
+    $('#successText').textContent = `Локальная проверка пройдена, ${name}. ${piece ? `Вы выбрали: ${piece}. ` : ''}Данные не отправлены: подключение приёма заявок ещё не настроено.`;
     form.classList.add('sent');
     success.focus();
   });
