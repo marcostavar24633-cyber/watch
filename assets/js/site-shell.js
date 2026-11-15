@@ -15,7 +15,7 @@
         <nav class="main-nav" aria-label="Основная навигация">${nav.map(link).join("")}</nav>
         <div class="header-actions">
           <a class="icon-link" href="./favorites.html" aria-label="Избранное" title="Избранное">♡</a>
-          <a class="icon-link" href="./compare.html" aria-label="Сравнение" title="Сравнение">⇄</a>
+          <a class="icon-link" href="./compare.html" aria-label="Сравнение" title="Сравнение">⇄</a>\n          <button class="icon-link" type="button" data-theme-toggle aria-label="Переключить тему" title="Переключить тему">◐</button>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Открыть меню">☰</button>
         </div>
       </div>
